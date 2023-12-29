@@ -34,8 +34,14 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  function newValue(n, current, acc) {
+    if (n === len) {
+      return acc;
+    }
+    return newValue(n + 1, current + 2, acc.concat(current));
+  }
+  return newValue(0, 1, []);
 }
 
 /**
@@ -264,7 +270,7 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
+function propagateItemsByPositionIndex() {
   throw new Error('Not implemented');
 }
 
